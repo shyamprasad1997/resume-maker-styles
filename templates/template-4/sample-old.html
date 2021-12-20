@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Responsive HTML5 Resume/CV Template for Developers">
+	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Google Font -->
+	<link
+		href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic'
+		rel='stylesheet' type='text/css'>
+	<!-- FontAwesome JS-->
+	<script defer src="assets/fontawesome/js/all.min.js"></script>
+	<!-- Global CSS -->
+	<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+	<!-- Theme CSS -->
+	<link id="theme-style" rel="stylesheet" href="template-4/css/orbit-{{.FourthStep.StyleID}}.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="sidebar-wrapper">
+			<div class="profile-container">
+				<img class="profile" src="{{.FirstStep.Avatar}}" alt="" />
+				<h1 class="name">{{.FirstStep.FirstName}} {{.FirstStep.LastName}}</h1>
+				<h3 class="tagline">{{.FirstStep.Designation}}</h3>
+			</div>
+
+			<div class="contact-container container-block">
+				<ul class="list-unstyled contact-list">
+					<li class="email"><i class="fas fa-envelope"></i>
+						{{.FirstStep.Email}}
+					</li>
+					<li class="phone"><i class="fas fa-phone"></i>{{.FirstStep.Phone}}</li>
+					<li class="website"><i class="fas fa-globe"></i>{{.FirstStep.Website}}</li>
+					<li class="linkedin"><i class="fab fa-linkedin-in"></i>{{.FirstStep.LinkedIn}}</li>
+					<li class="github">{{.FirstStep.AddressLine1}}<br />{{.FirstStep.AddressLine2}}</li>
+				</ul>
+			</div>
+
+			{{if .ThirdStep.EducationsCheck}}
+			<div class="education-container container-block">
+				<h2 class="container-block-title">Education</h2>
+				{{range .ThirdStep.Educations}}
+				<div class="item">
+					<h4 class="degree">{{.Name}}</h4>
+					<h5 class="meta">{{.Institution}}, {{.Location}}</h5>
+					<div class="time">{{.StartMonth}} {{.StartYear}} - {{.EndMonth}} {{.EndYear}}</div>
+					<p>{{.Description}}</p>
+				</div>
+				{{end}}
+			</div>
+			{{end}}
+
+			{{if .ThirdStep.LanguagesCheck}}
+			<div class="languages-container container-block">
+				<h2 class="container-block-title">Languages</h2>
+				<ul class="list-unstyled interests-list">
+					{{range .ThirdStep.Languages}}
+					<li>{{.Language}}
+						<span class="lang-desc">
+							{{if (eq .Level "1")}}
+							Elementary
+							{{else if (eq .Level "2")}}
+							Limited Working
+							{{else if (eq .Level "3")}}
+							Professional
+							{{else if (eq .Level "4")}}
+							Full Professional
+							{{else if (eq .Level "5")}}
+							Native
+							{{end}}
+						</span>
+					</li>
+					{{end}}
+				</ul>
+			</div>
+			{{end}}
+
+			{{if .ThirdStep.HobbiesCheck}}
+			<div class="interests-container container-block">
+				<h2 class="container-block-title">Interests</h2>
+				<ul class="list-unstyled interests-list">
+					{{range .ThirdStep.Hobbies}}
+					<li>{{.}}</li>
+					{{end}}
+				</ul>
+			</div>
+			{{end}}
+
+		</div>
+
+		<div class="main-wrapper">
+			<br />
+			<br />
+			<section class="section summary-section">
+				<h2 class="section-title">Career Profile
+				</h2>
+				<div class="summary">
+					<p>{{.SecondStep.Objective}}</p>
+				</div>
+				<!--//summary-->
+			</section>
+			<!--//section-->
+			{{if .SecondStep.ExperiencesCheck}}
+			<section class="section experiences-section">
+				<h2 class="section-title"></span>Experiences
+				</h2>
+				{{range .SecondStep.Experiences}}
+				<div class="item">
+					<div class="meta">
+						<div class="upper-row">
+							<h3 class="job-title">{{.Title}}</h3>
+							<div class="time">{{.StartMonth}} {{.StartYear}} - {{.EndMonth}} {{.EndYear}}</div>
+						</div>
+						<div class="company">{{.Employer}}, {{.Location}}</div>
+					</div>
+					<div class="details">
+						<p>{{.Description}}</p>
+					</div>
+				</div>
+				{{end}}
+			</section>
+			{{end}}
+
+			{{if .SecondStep.CertificationsCheck}}
+			<section class="section certifications-section">
+				<h2 class="section-title"></span>Certifications</h2>
+				<hr />
+				{{range .SecondStep.Certifications}}
+				<div class="item">
+					<div class="meta">
+					</div>
+					<!--//meta-->
+					<div class="details">
+						<div class="upper-row">
+							<h3 class="job-title">{{.Title}}</h3>
+						</div>
+						<!--//upper-row-->
+						<div class="company">{{.Institution}}</div>
+						<p>{{.Description}}</p>
+					</div>
+					<!--//details-->
+				</div>
+				{{end}}
+			</section>
+			{{end}}
+
+			{{range .SecondStep.Additionals}}
+			{{if .Check}}
+			<section class="section additional-section">
+				<h2 class="section-title"></span>{{.Title}}
+				</h2>
+				<div class="item">
+					<!--//meta-->
+					<div class="details">
+						<p>{{.Description}}</p>
+					</div>
+					<!--//details-->
+				</div>
+			</section>
+			{{end}}
+			{{end}}
+
+			{{if .SecondStep.SkillsCheck}}
+			<section class="skills-section section">
+				<h2 class="section-title"></span>Skills &amp;
+					Proficiency</h2>
+				<div class="skillset row">
+					{{range .SecondStep.Skills}}
+					<div class="item col-6">
+						<h3 class="level-title">{{.SkillName}}</h3>
+						<div>
+							{{if (eq .Level "1")}}
+							<span class="material-icons">looks_one</span>
+							<span class="material-icons">crop_square</span>
+							<span class="material-icons">crop_square</span>
+							<span class="material-icons">crop_square</span>
+							<span class="material-icons">crop_square</span>
+							{{else if (eq .Level "2")}}
+							<span class="material-icons">looks_one</span>
+							<span class="material-icons">looks_two</span>
+							<span class="material-icons">crop_square</span>
+							<span class="material-icons">crop_square</span>
+							<span class="material-icons">crop_square</span>
+							{{else if (eq .Level "3")}}
+							<span class="material-icons">looks_one</span>
+							<span class="material-icons">looks_two</span>
+							<span class="material-icons">looks_3</span>
+							<span class="material-icons">crop_square</span>
+							<span class="material-icons">crop_square</span>
+							{{else if (eq .Level "4")}}
+							<span class="material-icons">looks_one</span>
+							<span class="material-icons">looks_two</span>
+							<span class="material-icons">looks_3</span>
+							<span class="material-icons">looks_4</span>
+							<span class="material-icons">crop_square</span>
+							{{else if (eq .Level "5")}}
+							<span class="material-icons">looks_one</span>
+							<span class="material-icons">looks_two</span>
+							<span class="material-icons">looks_3</span>
+							<span class="material-icons">looks_4</span>
+							<span class="material-icons">looks_5</span>
+							{{end}}
+						</div>
+					</div>
+					{{end}}
+				</div>
+			</section>
+			{{end}}
+
+			{{range .ThirdStep.Additionals}}
+			{{if .Check}}
+			<section class="section additional-section">
+				<h2 class="section-title"></span>{{.Title}}
+				</h2>
+				<div class="item">
+					<!--//meta-->
+					<div class="details">
+						<p>{{.Description}}</p>
+					</div>
+					<!--//details-->
+				</div>
+			</section>
+			{{end}}
+			{{end}}
+
+			<br />
+			{{if .ThirdStep.DeclarationCheck}}
+			<section class="section declaration-section">
+				<h2 class="section-title"></span>Declaration
+				</h2>
+				<div class="item">
+					<!--//meta-->
+					<div class="details">
+						<p>{{.ThirdStep.Declaration}}</p>
+					</div>
+					<!--//details-->
+				</div>
+			</section>
+			{{end}}
+		</div>
+		<!--//main-body-->
+	</div>
+</body>
+
+</html>

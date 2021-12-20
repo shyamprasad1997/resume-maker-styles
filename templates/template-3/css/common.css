@@ -1,0 +1,138 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+p {
+  line-height: 1.5;
+}
+.wrapper {
+  position: relative;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.wrapper .declaration-section .section-title {
+  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+.main-wrapper .first-col {
+  width: 48%;
+}
+.main-wrapper .second-col {
+  width: 48%;
+}
+.main-wrapper .section-title {
+  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+.main-wrapper hr {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.main-wrapper .section .job-title {
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+.main-wrapper .experiences-section .titles {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.main-wrapper .experiences-section .titles {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.main-wrapper .educations-section .titles {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.main-wrapper .educations-section .titles {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.main-wrapper .certifications-section .titles {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.main-wrapper .certifications-section .titles {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.top-wrapper {
+  padding: 50px 50px 0px 50px;
+}
+.top-wrapper .name {
+  font-size: 50px;
+  margin: 0;
+  font-weight: 500;
+}
+.details-wrapper .detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.details-wrapper .detail-row .detail-col {
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+.skills-section .skillset {
+  margin-bottom: 8px;
+}
+.language-section .skillset {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.language-section .skillset .level-title {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+.language-section .skillset span {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+.interests-section .items {
+  margin: 5px;
+}
+ul {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+  display: inline-block;
+  padding-right: 10%;
+  width: auto;
+  margin-right: 0.5%;
+  padding-left: 0;
+  margin-left: 0;
+}
+.a4 {
+  min-height: 1460px;
+}
+.letter {
+  min-height: 1374px;
+}

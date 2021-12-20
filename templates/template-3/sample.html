@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Orbit - Bootstrap 5 Resume/CV Template for Developers</title>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Responsive HTML5 Resume/CV Template for Developers">
+	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Google Font -->
+	<link
+		href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic'
+		rel='stylesheet' type='text/css'>
+	<!-- FontAwesome JS-->
+	<script defer src="assets/fontawesome/js/all.min.js"></script>
+	<!-- Global CSS -->
+	<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+	<!-- Theme CSS -->
+	<link id="theme-style" rel="stylesheet" href="template-3/css/orbit-{{.FourthStep.StyleID}}.css">
+	<link id="theme-style" rel="stylesheet" href="template-3/css/common.css">
+</head>
+
+<body>
+	<!-- main wrapper  -->
+	{{if (eq .FourthStep.PageSize "a4")}}
+		<div class="wrapper a4">
+	{{else}}
+		<div class="wrapper letter">
+	{{end}}
+		<div class="top-wrapper">
+			<h2 class="section-title name">{{.FirstStep.FirstName}} {{.FirstStep.LastName}}</h2>
+			<h2 class="section-title designation">{{.FirstStep.Designation}}</h2>
+			<br />
+			{{if .SecondStep.ObjectiveCheck}}
+				<div class="summary">
+					<p>{{.SecondStep.Objective}}</p>
+				</div>
+			{{end}}
+		</div>
+		<div class="details-wrapper">
+			<div class="detail-row">
+				<div class="detail-col">
+					<i class="material-icons">email</i> &nbsp;
+					<span class="email">
+						{{.FirstStep.Email}}
+					</span>
+				</div>
+				{{if .FirstStep.Phone}}
+					<div class="detail-col">
+						<i class="material-icons">phone</i> &nbsp;
+						<span class="phone">
+							{{.FirstStep.Phone}}
+						</span>
+					</div>
+				{{end}}
+				{{if .FirstStep.Website}}
+					<div class="detail-col">
+						<i class="material-icons">public</i> &nbsp;
+						<span class="website">
+							{{.FirstStep.Website}}
+						</span>
+					</div>
+				{{end}}
+			</div>
+			<div class="detail-row">
+				<div class="detail-col">
+					<i class="material-icons">home</i> &nbsp;
+					<span class="address">
+						{{.FirstStep.AddressLine1}} {{.FirstStep.AddressLine2}}
+					</span>
+				</div>
+				<div class="detail-col">
+					<span class="linkedin">
+						<i class="fab fa-linkedin-in"></i>
+						{{.FirstStep.LinkedIn}}
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="background-wrapper">
+			<div class="main-wrapper">
+				<br/>
+				<div class="first-col">
+					{{if .SecondStep.ExperiencesCheck}}
+						<section class="section experiences-section">
+							<h2 class="section-title"></span>Experience</h2>
+							<hr />
+							{{range .SecondStep.Experiences}}
+								<div class="item">
+									<div class="titles">
+										<h3 class="job-title">{{.Title}}</h3>
+										<div class="meta">
+											<div>{{.StartMonth}} {{.StartYear}} - {{.EndMonth}} {{.EndYear}}</div>
+										</div>
+									</div>
+									<div class="company">{{.Location}}</div>
+									<!--//upper-row-->
+									<p>{{.Description}}
+									</p>
+								</div>
+							{{end}}
+						</section>
+					{{end}}				
+
+					{{if .SecondStep.CertificationsCheck}}
+						<section class="section certifications-section">
+							<h2 class="section-title"></span>Certifications</h2>
+							<hr />
+							{{range .SecondStep.Certifications}}
+								<div class="item">
+									<div class="titles">
+										<h3 class="job-title">{{.Title}}</h3>
+									</div>
+									<div class="company">{{.Institution}}</div>
+									<!--//upper-row-->
+									<p>{{.Description}}</p>
+								</div>
+							{{end}}
+						</section>
+					{{end}}
+
+					{{range .SecondStep.Additionals}}
+						{{if .Check}}
+							<section class="section additional-section">
+								<h2 class="section-title"></span>{{.Title}}</h2>
+								<hr />
+								<div class="item">
+									<p>{{.Description}}</p>
+								</div>
+							</section>
+						{{end}}
+					{{end}}
+				</div>
+
+				<div style="width: 4%;"></div>
+
+				<div class="second-col">
+
+					{{if .ThirdStep.EducationsCheck}}
+						<section class="section educations-section">
+							<h2 class="section-title"></span>Education</h2>
+							<hr />
+							{{range .ThirdStep.Educations}}
+								<div class="item">
+									<div class="titles">
+										<h3 class="job-title">{{.Name}}</h3>
+										<div class="meta">
+											<div>{{.StartMonth}} {{.StartYear}} - {{.EndMonth}} {{.EndYear}}</div>
+										</div>
+									</div>
+									<div class="company">{{.Location}}</div>
+									<!--//upper-row-->
+									<p>{{.Description}}</p>
+								</div>
+							{{end}}
+						</section>
+					{{end}}
+
+					{{if .SecondStep.SkillsCheck}}
+						<section class="skills-section section">
+							<h2 class="section-title"></span>Skills</h2>
+							<hr />
+							<div class="skillset row">
+								{{range .SecondStep.Skills}}
+									<div class="item col-6">
+										<h3 class="level-title">{{.SkillName}}</h3>
+										<div>
+											{{if (eq .Level "1")}}
+												<span class="material-icons">stop</span>
+												<span class="material-icons">crop_square</span>
+												<span class="material-icons">crop_square</span>
+												<span class="material-icons">crop_square</span>
+												<span class="material-icons">crop_square</span>
+											{{else if (eq .Level "2")}}
+												<span class="material-icons">stop</span>
+												<span class="material-icons">stop</span>
+												<span class="material-icons">crop_square</span>
+												<span class="material-icons">crop_square</span>
+												<span class="material-icons">crop_square</span>
+											{{else if (eq .Level "3")}}
+												<span class="material-icons">stop</span>
+												<span class="material-icons">stop</span>
+												<span class="material-icons">stop</span>
+												<span class="material-icons">crop_square</span>
+												<span class="material-icons">crop_square</span>
+											{{else if (eq .Level "4")}}
+												<span class="material-icons">stop</span>
+												<span class="material-icons">stop</span>
+												<span class="material-icons">stop</span>
+												<span class="material-icons">stop</span>
+												<span class="material-icons">crop_square</span>
+											{{else if (eq .Level "5")}}
+												<span class="material-icons">stop</span>
+												<span class="material-icons">stop</span>
+												<span class="material-icons">stop</span>
+												<span class="material-icons">stop</span>
+												<span class="material-icons">stop</span>
+											{{end}}
+										</div>
+									</div>
+								{{end}}
+							</div>
+						</section>
+					{{end}}
+					
+					{{if .ThirdStep.LanguagesCheck}}
+					<section class="language-section section">
+						<h2 class="section-title"></span>Languages</h2>
+						<hr />
+						<div class="skillset row">
+							{{range .ThirdStep.Languages}}
+								<div class="item col-6">
+									<h3 class="level-title">{{.Language}}</h3>
+									<div>
+										{{if (eq .Level "1")}}
+											<span class="material-icons">stop</span>
+											<span class="material-icons">crop_square</span>
+											<span class="material-icons">crop_square</span>
+											<span class="material-icons">crop_square</span>
+											<span class="material-icons">crop_square</span>
+										{{else if (eq .Level "2")}}
+											<span class="material-icons">stop</span>
+											<span class="material-icons">stop</span>
+											<span class="material-icons">crop_square</span>
+											<span class="material-icons">crop_square</span>
+											<span class="material-icons">crop_square</span>
+										{{else if (eq .Level "3")}}
+											<span class="material-icons">stop</span>
+											<span class="material-icons">stop</span>
+											<span class="material-icons">stop</span>
+											<span class="material-icons">crop_square</span>
+											<span class="material-icons">crop_square</span>
+										{{else if (eq .Level "4")}}
+											<span class="material-icons">stop</span>
+											<span class="material-icons">stop</span>
+											<span class="material-icons">stop</span>
+											<span class="material-icons">stop</span>
+											<span class="material-icons">crop_square</span>
+										{{else if (eq .Level "5")}}
+											<span class="material-icons">stop</span>
+											<span class="material-icons">stop</span>
+											<span class="material-icons">stop</span>
+											<span class="material-icons">stop</span>
+											<span class="material-icons">stop</span>
+										{{end}}
+									</div>
+								</div>
+							{{end}}
+						</div>
+					</section>
+					{{end}}
+					
+					{{if .ThirdStep.HobbiesCheck}}
+						<section class="section interests-section">
+							<h2 class="section-title"></span>Interests</h2>
+							<hr />
+							<ul class="items">
+								{{range .ThirdStep.Hobbies}}
+									<li class="item">{{.}}</li>
+								{{end}}
+							</ul>
+						</section>
+					{{end}}
+
+					{{range .ThirdStep.Additionals}}
+						{{if .Check}}
+							<section class="section additional-section">
+								<h2 class="section-title"></span>{{.Title}}</h2>
+								<hr />
+								<div class="item">
+									<p>{{.Description}}</p>
+								</div>
+							</section>
+						{{end}}
+					{{end}}
+
+				</div>
+			</div>
+			{{if .DeclarationCheck}}
+				<section class="section declaration-section">
+					<h2 class="section-title"></span>Declaration</h2>
+					<hr />
+					<p>{{.ThirdStep.Declaration}} </p>
+					<!--//item-->
+				</section>
+			{{end}}
+		</div>
+	</div>
+</body>
+
+</html>

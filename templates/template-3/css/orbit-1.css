@@ -1,0 +1,58 @@
+.material-icons {
+  color: black;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+.wrapper .declaration-section {
+  width: 100%;
+  padding: 0px 50px 50px 50px;
+}
+.main-wrapper {
+  display: flex;
+  padding: 20px 50px 0px 50px;
+}
+.main-wrapper .experiences-section .company {
+  font-size: 20px;
+  color: grey;
+  margin-bottom: 10px;
+}
+.main-wrapper .educations-section .company {
+  font-size: 20px;
+  color: grey;
+  margin-bottom: 10px;
+}
+.main-wrapper .certifications-section .company {
+  font-size: 20px;
+  color: grey;
+  margin-bottom: 10px;
+}
+.top-wrapper .designation {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 500;
+  color: grey;
+}
+.details-wrapper {
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 10px 50px 10px 50px;
+}
+.interests-section .items .item {
+  border: grey 2px solid;
+  padding: 1px 8px 1px 8px;
+  border-radius: 10px;
+  margin: 5px;
+}
